@@ -1,7 +1,7 @@
 #include "stdint.h"
 #include "tm4c123gh6pm.h"
 #include "init.h"
-#include "Systick_Wait1ms.h"
+#include "Systick.h"
 void Init()
 {
 	Systick_Wait1ms(50);
