@@ -1,6 +1,30 @@
 #include "lcd.h"
 #include "C:/Keil/Labware/inc/TM4C123GH6PM.h"
 
+void Init_Systick()
+{
+	NVIC_ST_CTRL_R = 0;
+	NVIC_ST_CURRENT_R = 0;
+	NVIC_ST_RELOAD_R = 0x00FFFFFF;
+	NVIC_ST_CTRL_R = 0x00000005;
+}
+
+void Systick_Wait(uint32_t delay)
+{
+	NVIC_ST_RELOAD_R = delay-1;
+	NVIC_ST_CURRENT_R = 0;
+	while((NVIC_ST_CTRL_R&0x00010000)==0)
+	{}
+}
+
+void Systick_Wait1ms(uint32_t delay)
+{
+	unsigned long i;
+	for(i=0;i<delay;i++)
+	{
+		Systick_Wait(3*16000);
+	}
+}
 
 void LCD_Command (unsigned char command)
 {
@@ -24,7 +48,20 @@ void LCD_Data (char data)
 	GPIO_PORTA_DATA_R &= !(E) ; // E is LOW
 }
 
-
+void Print (char * string)
+{
+	int counter = 0;
+	while(*string != '\0')
+	{
+		LCD_Data(*string);
+		counter ++ ;
+		string++;
+		if(counter==15)
+		{
+			LCD_Command(0xC0);
+		}
+	}
+}
 
 	
 void Init()
@@ -38,7 +75,7 @@ void Init()
 	GPIO_PORTA_DEN_R |= 0x1C; 
 	GPIO_PORTA_AFSEL_R = 0;
 	GPIO_PORTA_PUR_R = 0;
-  GPIO_PORTA_AMSEL_R = 0;
+    GPIO_PORTA_AMSEL_R = 0;
 	GPIO_PORTA_PCTL_R = 0;
 	GPIO_PORTA_DEN_R |= 0x80;
 	GPIO_PORTA_DIR_R |= 0x80;	
@@ -49,11 +86,11 @@ void Init()
 	GPIO_PORTB_DEN_R |= 0xFF; 
 	GPIO_PORTB_AFSEL_R = 0;
 	GPIO_PORTB_PUR_R = 0;
-  GPIO_PORTB_AMSEL_R = 0;  
+    GPIO_PORTB_AMSEL_R = 0;  
 	GPIO_PORTA_PCTL_R = 0;
 
 	
-  LCD_Command(0x30); //wakeup
+    LCD_Command(0x30); //wakeup
 	Systick_Wait1ms(1);	
 	
 	LCD_Command(0x38); //use 8-bit data
