@@ -390,12 +390,12 @@
             <File>
               <FileName>lcd.c</FileName>
               <FileType>1</FileType>
-              <FilePath>D:\lcd.c</FilePath>
+              <FilePath>D:\D\Github\GPS-Tracking-System\GPS\lcd.c</FilePath>
             </File>
             <File>
               <FileName>lcd.h</FileName>
               <FileType>5</FileType>
-              <FilePath>D:\lcd.h</FilePath>
+              <FilePath>D:\D\Github\GPS-Tracking-System\GPS\lcd.h</FilePath>
             </File>
           </Files>
         </Group>
