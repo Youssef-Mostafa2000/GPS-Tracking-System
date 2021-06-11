@@ -4,5 +4,6 @@
 
 void InitPortF(void);
 void Output(uint32_t data);
+void Distance_exceeds100(float distance);
 
 #endif

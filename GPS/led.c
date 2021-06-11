@@ -20,3 +20,11 @@ void Output(uint32_t data)
 {
 	GPIO_PORTF_DATA_R = data ;
 }
+
+void Distance_exceeds100(float distance)
+{
+	if(distance>=100)
+	{
+		Output(0x08);  //turn on Green LED when distance exceeds 100 m
+	}
+}
