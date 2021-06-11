@@ -10,6 +10,7 @@
       <TargetName>Target 1</TargetName>
       <ToolsetNumber>0x4</ToolsetNumber>
       <ToolsetName>ARM-ADS</ToolsetName>
+      <pCCUsed>6160000::V6.16::ARMCLANG</pCCUsed>
       <uAC6>1</uAC6>
       <TargetOption>
         <TargetCommonOption>
@@ -396,6 +397,16 @@
               <FileName>lcd.h</FileName>
               <FileType>5</FileType>
               <FilePath>D:\D\Github\GPS-Tracking-System\GPS\lcd.h</FilePath>
+            </File>
+            <File>
+              <FileName>uart.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>C:\Users\Youssef Mostafa\Desktop\ASU\3rd Computer\2nd Term\Microprocessors\Project\github\Eslam\uart.c</FilePath>
+            </File>
+            <File>
+              <FileName>uart.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>C:\Users\Youssef Mostafa\Desktop\ASU\3rd Computer\2nd Term\Microprocessors\Project\github\Eslam\uart.h</FilePath>
             </File>
           </Files>
         </Group>
