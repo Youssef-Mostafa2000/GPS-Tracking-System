@@ -1,6 +1,5 @@
+#include "C:/Keil/Labware/TM4C123GH6PM.h"
 #include "Systick.h"
-#include "stdint.h"
-#include "tm4c123gh6pm.h"
 
 void Init_Systick()
 {
