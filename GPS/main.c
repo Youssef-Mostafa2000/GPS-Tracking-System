@@ -8,6 +8,7 @@
 #include "stdio.h"
 #include "math.h"
 #include "gps.h"
+#include "led.h"
 
 int main()
 { 
@@ -114,7 +115,7 @@ int main()
                    }
                    
                    Total_Distance+=Calc_Distance(ToRadian(ToDegrees(long_swap[0])),ToRadian(ToDegrees(long_swap[1])),ToRadian(ToDegrees(lat_swap[1])),ToRadian(ToDegrees(lat_swap[0])));
-                   
+                   Distance_exceeds100(Total_Distance);
                    
                    
                    sprintf(Distance,"%f",Total_Distance);
